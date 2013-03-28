@@ -13,7 +13,6 @@
         <link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" />
 
         <link rel="stylesheet" href="styles/main.css"/>
-
     </head>
     <body ng-app="trankeeloManagerApp">
 
@@ -160,7 +159,7 @@
                                                     <!--we use contact-item structure like the component media in bootstrap-->
                                                     <div class="contact-item">
                                                         <div class="contact-item-body">
-                                                            <div class="status" title="busy"><i class="icofont-certificate color-red"></i></div>
+                                                            <div class="status" title="busy"><i class="icofont-certificate color-red syncing-active"></i></div>
                                                             <p class="contact-item-heading bold">Cashier 1</p>
                                                             <p class="help-block"><small class="muted">Syncing...</small></p>
                                                         </div>
@@ -209,17 +208,8 @@
                                                     <div class="contact-item">
                                                         <div class="contact-item-body">
                                                             <div class="status" title="online"><i class="icofont-certificate color-green transaction-active"></i></div>
-                                                            <script>
-                                                                function blink(){
-                                                                    $('.transaction-active').delay(100).fadeTo(100,0.5).delay(100).fadeTo(100,1, blink);
-                                                                }
-
-                                                                $(document).ready(function() {
-                                                                    blink();
-                                                                });
-                                                            </script>
                                                             <p class="contact-item-heading bold">Cashier 5</p>
-                                                            <p class="help-block"><small class="muted">Online</small></p>
+                                                            <p class="help-block"><small class="muted">Active...</small></p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -245,9 +235,20 @@
                 </div><!-- /span side-right -->
             </div>
         </section>
-        
 
+        <script src="components/jquery/jquery.min.js"></script>
         <script src="scripts/vendor/angular.js"></script>
+
+        <script>
+            function blink(){
+                $('.transaction-active').delay(100).fadeTo(100,0.5).delay(100).fadeTo(100,1, blink);
+                $('.syncing-active').delay(50).fadeTo(100,0.5).delay(100).fadeTo(100,1, blink);
+            }
+
+            $(document).ready(function() {
+                blink();
+            });
+        </script>
 
         <!-- build:js scripts/scripts.js -->
         <script src="scripts/app.js"></script>
