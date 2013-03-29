@@ -19,6 +19,10 @@ var trankeeloManagerApp = angular.module('trankeeloManagerApp', [])
         templateUrl: 'views/cashier.html',
         controller: 'CashierCtrl'
       })
+      .when('/template', {
+        templateUrl: 'views/template.html',
+        controller: 'TemplateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
