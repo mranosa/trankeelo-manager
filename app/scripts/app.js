@@ -31,6 +31,10 @@ var trankeeloManagerApp = angular.module('trankeeloManagerApp', [])
         templateUrl: 'views/inventory.html',
         controller: 'InventoryCtrl'
       })
+      .when('/expenses', {
+        templateUrl: 'views/expenses.html',
+        controller: 'ExpensesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
