@@ -1,15 +1,15 @@
 'use strict';
 
-trankeeloManagerApp.factory('NavService', function() {
-  // Service logic
-  // ...
+trankeeloManagerApp.factory('NavService', ['$rootScope', function($rootScope) {
+  	var NavService = function() {
+		
+	};
 
-  var meaningOfLife = 42;
+	NavService.prototype = {
+		updateActiveNav: function(){
+			$rootScope.$broadcast('update_active_nav');
+		}
+	}
 
-  // Public API here
-  return {
-    someMethod: function() {
-      return meaningOfLife;
-    }
-  };
-});
+	return new NavService();
+}]);
