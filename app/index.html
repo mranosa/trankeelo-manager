@@ -41,11 +41,20 @@
         <section class="section">
             <div class="row-fluid">
                 <!-- span side-left -->
-                <div class="span1">
+                <div class="span1" ng-controller="NavCtrl">
                     <!--side bar-->
                     <aside class="side-left">
                         <ul class="sidebar">
-                            <li class="active">
+                            <li ng-repeat="nav in navs">
+                                <a href="{{nav.url}}">
+                                    <div class="helper-font-24">
+                                        <i class="{{nav.iconCls}}"></i>
+                                    </div>
+                                    <span class="sidebar-text">{{nav.name}}</span>
+                                </a>
+                            </li>
+
+                            <!-- <li class="active">
                                 <a href="#/dashboard" title="dashboard">
                                     <div class="helper-font-24">
                                         <i class="icofont-dashboard"></i>
@@ -108,7 +117,7 @@
                                     </div>
                                     <span class="sidebar-text">History</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </aside><!--/side bar -->
                 </div><!-- span side-left -->
