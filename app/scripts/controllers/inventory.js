@@ -1,9 +1,5 @@
 'use strict';
 
-trankeeloManagerApp.controller('InventoryCtrl', function($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Testacular'
-  ];
-});
+trankeeloManagerApp.controller('InventoryCtrl', ['NavService', '$scope', function(NavService, $scope) {
+  NavService.updateActiveNav();
+}]);

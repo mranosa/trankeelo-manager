@@ -1,9 +1,5 @@
 'use strict';
 
-trankeeloManagerApp.controller('HistoryCtrl', function($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Testacular'
-  ];
-});
+trankeeloManagerApp.controller('HistoryCtrl', ['NavService', '$scope', function(NavService, $scope) {
+  NavService.updateActiveNav();
+}]);
