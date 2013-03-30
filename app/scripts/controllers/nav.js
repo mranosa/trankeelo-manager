@@ -8,47 +8,58 @@ trankeeloManagerApp.controller('NavCtrl', ['$location', '$scope',
   		name: 'Dashboard',
   		iconCls: 'icofont-dashboard',
   		url: '#/dashboard',
-      active: false
+      navCls: ''
   	}, {
   		name: 'Stores',
   		iconCls: 'icofont-sitemap',
   		url: '#/stores',
-      active: false
+      navCls: ''
   	}, {
   		name: 'Cashier',
   		iconCls: 'icofont-group',
   		url: '#/cashier',
-      active: false
+      navCls: ''
   	}, {
   		name: 'Template',
   		iconCls: 'icofont-edit',
   		url: '#/template',
-      active: false
+      navCls: ''
   	}, {
   		name: 'Items',
   		iconCls: 'icofont-qrcode',
   		url: '#/items',
-      active: false
+      navCls: ''
   	}, {
   		name: 'Inventory',
   		iconCls: 'icofont-book',
   		url: '#/inventory',
-      active: false
+      navCls: ''
   	}, {
   		name: 'Expenses',
   		iconCls: 'icofont-money',
   		url: '#/expenses',
-      active: false
+      navCls: ''
   	}, {
   		name: 'History',
   		iconCls: 'icofont-calendar',
   		url: '#/history',
-      active: false
+      navCls: ''
   	}
   ];
 
   $scope.updateActiveNav = function(){
-    console.log($location.path());
+    var navs = _.map($scope.navs, 
+      function(nav){ 
+        nav.navCls = '';
+        if($location.path() !== '/' && nav.url.indexOf($location.path()) === 1) {
+          nav.navCls = 'active';
+        }
+
+        return nav; 
+      }
+    );
   };
+
+  $scope.$on('update_active_nav', $scope.updateActiveNav);
 
 }]);
