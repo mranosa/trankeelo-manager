@@ -1,39 +1,54 @@
 'use strict';
 
-trankeeloManagerApp.controller('NavCtrl', function($scope) {
+trankeeloManagerApp.controller('NavCtrl', ['$location', '$scope', 
+  function($location, $scope) {
+
   $scope.navs = [
   	{
   		name: 'Dashboard',
   		iconCls: 'icofont-dashboard',
-  		url: '#/dashboard'
+  		url: '#/dashboard',
+      active: false
   	}, {
   		name: 'Stores',
   		iconCls: 'icofont-sitemap',
-  		url: '#/stores'
+  		url: '#/stores',
+      active: false
   	}, {
   		name: 'Cashier',
   		iconCls: 'icofont-group',
-  		url: '#/cashier'
+  		url: '#/cashier',
+      active: false
   	}, {
   		name: 'Template',
   		iconCls: 'icofont-edit',
-  		url: '#/template'
+  		url: '#/template',
+      active: false
   	}, {
   		name: 'Items',
   		iconCls: 'icofont-qrcode',
-  		url: '#/items'
+  		url: '#/items',
+      active: false
   	}, {
   		name: 'Inventory',
   		iconCls: 'icofont-book',
-  		url: '#/inventory'
+  		url: '#/inventory',
+      active: false
   	}, {
   		name: 'Expenses',
   		iconCls: 'icofont-money',
-  		url: '#/expenses'
+  		url: '#/expenses',
+      active: false
   	}, {
   		name: 'History',
   		iconCls: 'icofont-calendar',
-  		url: '#/history'
+  		url: '#/history',
+      active: false
   	}
   ];
-});
+
+  $scope.updateActiveNav = function(){
+    console.log($location.path());
+  };
+
+}]);
