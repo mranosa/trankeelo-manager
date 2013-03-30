@@ -1,6 +1,6 @@
 'use strict';
 
-var trankeeloManagerApp = angular.module('trankeeloManagerApp', ['ngResource'])
+var trankeeloManagerApp = angular.module('trankeeloManagerApp', ['ngResource', 'angular-underscore'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
