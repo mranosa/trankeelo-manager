@@ -142,7 +142,7 @@ angular.module('firebase').factory('angularFireCollection', function($timeout) {
     }
 
     if (initialCb && typeof initialCb == 'function') {
-      collectionRef.once('value', initialCb);
+      collectionRef.on('value', initialCb);
     }
 
     collectionRef.on('child_added', function(data, prevId) {
