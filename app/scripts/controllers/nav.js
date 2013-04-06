@@ -19,27 +19,29 @@ trankeeloManagerApp.controller('NavCtrl', ['$location', '$scope',
   		iconCls: 'icofont-group',
   		url: '#/cashier',
       navCls: ''
-  	}, {
-  		name: 'Template',
-  		iconCls: 'icofont-edit',
-  		url: '#/template',
-      navCls: ''
-  	}, {
-  		name: 'Items',
-  		iconCls: 'icofont-qrcode',
-  		url: '#/items',
-      navCls: ''
-  	}, {
+  	// }, {
+  	// 	name: 'Template',
+  	// 	iconCls: 'icofont-edit',
+  	// 	url: '#/template',
+   //    navCls: ''
+  	// }, {
+  	// 	name: 'Items',
+  	// 	iconCls: 'icofont-qrcode',
+  	// 	url: '#/items',
+   //    navCls: ''
+  	// }, {
+    }, {
   		name: 'Inventory',
   		iconCls: 'icofont-book',
   		url: '#/inventory',
       navCls: ''
   	}, {
-  		name: 'Expenses',
-  		iconCls: 'icofont-money',
-  		url: '#/expenses',
-      navCls: ''
-  	}, {
+   //  , {
+  	// 	name: 'Expenses',
+  	// 	iconCls: 'icofont-money',
+  	// 	url: '#/expenses',
+   //    navCls: ''
+  	// }, {
   		name: 'History',
   		iconCls: 'icofont-calendar',
   		url: '#/history',
