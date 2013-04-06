@@ -3,10 +3,10 @@
 <div class="content">
     <!-- content-header -->
     <div class="content-header">
-        <ul class="content-header-action pull-right">
+        <ul class="content-header-action pull-right" ng-show="page.show_add_button">
             <li class="divider"></li>
             <li>
-                <a href="#">
+                <a href ng-click="showAddStore()">
                     <div class="badge-circle color-white">
                         <div class="grd-teal">
                             <i class="icofont-plus-sign"></i>
@@ -26,7 +26,7 @@
             <div class="span12">
 
                 <!-- store-new -->
-                <div id="store-new" class="row-fluid">
+                <div id="store-new" class="row-fluid" ng-show="page.show_add_item">
                     <div class="span12">
                         <div class="box corner-all">
                             
@@ -57,7 +57,7 @@
                                     
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-primary">Save changes</button>
-                                        <button type="button" class="btn">Cancel</button>
+                                        <button type="button" class="btn" ng-click="cancelAddStore()">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -74,30 +74,16 @@
 
                 <!-- test start -->
                 <!--datatables-->
-                <div class="row-fluid">
+                <div class="row-fluid" ng-show="page.show_list">
                     <div class="span12">
                         <div class="box corner-all">
                             <div class="box-header grd-white corner-top">
-                                <div class="header-control">
-                                    <a data-box="collapse"><i class="icofont-caret-up"></i></a>
-                                    <a data-box="close" data-hide="bounceOutRight">&times;</a>
-                                </div>
                                 <span>Store List</span>
                             </div>
                             <div class="box-body">
-                                <table id="datatables" class="table table-bordered table-striped responsive">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>TIN</th>
-                                            <th>Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                    </tbody>
+                                <div id="table_loading" ng-show="page.show_list_loading">Loading....</div>
+                                <table id="datatables" class="table table-bordered table-striped responsive" ng-show="page.show_list_table">
                                 </table>
-                                
                             </div><!-- /box-body -->
                         </div><!-- /box -->
                     </div><!-- /span -->

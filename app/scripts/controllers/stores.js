@@ -13,8 +13,18 @@ trankeeloManagerApp.controller('StoresCtrl', [
     description: ''
   };
 
+  $scope.page = {
+    show_list_loading : true,
+    show_list_table : false,
+    show_list : true,
+    show_add_item : false,
+    show_add_button : false,
+  };
+
   $scope.stores.then(function(stores) {
+    $scope.hideList();
     console.log(stores);
+
     $('#datatables').dataTable( {
         "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
         "sPaginationType": "bootstrap",
@@ -28,8 +38,9 @@ trankeeloManagerApp.controller('StoresCtrl', [
           { "sTitle": "Description", "mData": "description", "mDataProp" : "description" }
         ]
     });
-
+    $scope.page.show_add_button = true;
     $scope.addStore = function(){
+      $scope.showList();
       $scope.stores.push($scope.store);
       addStoreInDatatable($scope.store);
       $scope.store = {
@@ -43,15 +54,36 @@ trankeeloManagerApp.controller('StoresCtrl', [
       $scope.stores.splice($scope.stores.indexOf(store), 1);
     };
 
-    //TODO implement edit
+    //TODO implement edit and delete
   });
+  
+  $scope.showAddStore = function(){
+    $scope.page.show_add_item = true;
+    $scope.page.show_list = false;
+  }
+
+  $scope.cancelAddStore = function(){
+    $scope.hideList();
+  }
+
+  $scope.showList = function(){
+    $scope.page.show_add_item = false;
+    $scope.page.show_list = true;
+  };
+
+  $scope.hideList = function(){
+    $scope.page.show_list_loading = false;
+    $scope.page.show_list_table = true;
+  };
 
   function addStoreInDatatable(store){
-  $('#datatables').dataTable().fnAddData({
-    "name" : store.name,
-    "tin" : store.tin,
-    "description" : store.description 
-  });
-  }
+    $('#datatables').dataTable().fnAddData({
+      "name" : store.name,
+      "tin" : store.tin,
+      "description" : store.description 
+    });
+  };
+
+  $scope.showList();
 
 }]);
