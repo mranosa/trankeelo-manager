@@ -6,7 +6,7 @@ trankeeloManagerApp.controller('StoresCtrl', [
   NavService.updateActiveNav();
 
   var url = 'https://trankeelo.firebaseio.com/users/test_user/stores';
-  $scope.stores = angularFire(url, $scope, 'stores', []);
+  $scope.bound = angularFire(url, $scope, 'stores', []);
   $scope.store = {
     name: '',
     tin: '',
@@ -21,7 +21,7 @@ trankeeloManagerApp.controller('StoresCtrl', [
     show_add_button : false,
   };
 
-  $scope.stores.then(function(stores) {
+  $scope.bound.then(function(stores) {
     $scope.hideList();
     console.log(stores);
 
