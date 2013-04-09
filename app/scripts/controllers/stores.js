@@ -53,6 +53,10 @@ trankeeloManagerApp.controller('StoresCtrl', [
     };
 
     $scope.removeStore = function (store) {
+      console.log('-------');
+      console.log(store);
+      console.log($scope.stores.indexOf(store));
+      console.log('-------');
       $scope.stores.splice($scope.stores.indexOf(store), 1);
     };
 
@@ -91,8 +95,13 @@ trankeeloManagerApp.controller('StoresCtrl', [
   $scope.storeTableOptions = { 
     data: 'stores',
     multiSelect: false,
-    enableCellEdit: true,  
-    enableCellSelection: true
+    enableCellSelection: true,
+    columnDefs: [
+                  { field: "name", enableCellEdit: true},
+                  { field: "tin", enableCellEdit: true},
+                  { field: "description", enableCellEdit: true},
+                  { field:'', cellTemplate: '<button ng-click="removeStore(row.entity)">Delete</button>', enableCellEdit: false}
+                ]
   };
 
 }]);
