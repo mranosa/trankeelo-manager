@@ -90,7 +90,8 @@ trankeeloManagerApp.controller('StoresCtrl', [
 
   $scope.storeTableOptions = { 
     data: 'stores',
-    enableCellEdit: true,
+    multiSelect: false,
+    enableCellEdit: true,  
     enableCellSelection: true
   };
 
